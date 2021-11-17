@@ -2,6 +2,7 @@ package hu.petrik.sqlite;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -44,5 +45,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 value.put(COL_KERNEV, keresztnev);
                 value.put(COL_JEGY, jegy);
         return db.insert(TABLE_NAME, null, value) != -1;
+    }
+
+    public Cursor listazas() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor eredmeny = db.query(TABLE_NAME, new String[]{COL_ID, COL_VEZNEV, COL_KERNEV, COL_JEGY},
+                null, null, null, null, null);
+        return eredmeny;
     }
 }
