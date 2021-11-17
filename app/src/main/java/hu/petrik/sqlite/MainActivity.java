@@ -53,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btnTorlesre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent vissza = new Intent(MainActivity.this, activity_torles.class);
+                startActivity(vissza);
+                finish();
+            }
+        });
     }
 
     private void init() {
