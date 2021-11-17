@@ -39,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     StringBuilder sb = new StringBuilder();
                     while (adatok.moveToNext()){
-                        sb.append("ID: ").append(adatok.getInt(0));
+                        sb.append("ID: ").append(adatok.getString(0));
                         sb.append(System.lineSeparator());
-                        sb.append("Keresztnév: ").append(adatok.getInt(1));
+                        sb.append("Keresztnév: ").append(adatok.getString(1));
                         sb.append(System.lineSeparator());
-                        sb.append("Vezetéknév: ").append(adatok.getInt(2));
+                        sb.append("Vezetéknév: ").append(adatok.getString(2));
                         sb.append(System.lineSeparator());
-                        sb.append("Jegy: ").append(adatok.getInt(3));
+                        sb.append("Jegy: ").append(adatok.getString(3));
                         sb.append(System.lineSeparator());
                         sb.append(System.lineSeparator());
                     }
+                    textLista.setText(sb.toString());
                 }
             }
         });
