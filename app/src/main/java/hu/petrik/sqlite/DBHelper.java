@@ -53,4 +53,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 null, null, null, null, null);
         return eredmeny;
     }
+
+    public int torles(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int eredmeny = db.delete(TABLE_NAME, COL_ID + "=?", new String[]{id});
+        return eredmeny;
+    }
+
+    public int modositas(String id, String vezetekNev, String keresztNev, String jegy) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues value = new ContentValues();
+        value.put(COL_VEZNEV, vezetekNev);
+        value.put(COL_KERNEV, keresztNev);
+        value.put(COL_JEGY, jegy);
+        return db.update(TABLE_NAME, value, COL_ID + "=?", new String[]{id});
+    }
 }
